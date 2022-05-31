@@ -10,7 +10,13 @@
 </head>
 
 <body>
-
+    <form action="javascript: receberDados()" id="novoAluno">
+        <input required type="text" name="name" id="name" placeholder="Nome">
+        <input type="number" name="nota-1" id="nota-1" placeholder="Nota 1:" min="0" max="10" required>
+        <input type="number" name="nota-2" id="nota-2" placeholder="Nota 2:" min="0" max="10" required>
+        <input type="number" name="nota-3" id="nota-3" placeholder="Nota 3:" min="0" max="10" required>
+        <button type="submit">Inserir</button>
+    </form>
     <table>
         <thead>
             <tr>
@@ -23,75 +29,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Lenner</td>
-                <td>5</td>
-                <td>6</td>
-                <td>8</td>
-                <td>10</td>
-                <td>aprovado</td>
-            </tr>
-            <tr>
-                <td>Lenner</td>
-                <td>5</td>
-                <td>6</td>
-                <td>8</td>
-                <td>10</td>
-                <td>aprovado</td>
-            </tr>
-            <tr>
-                <td>Lenner</td>
-                <td>5</td>
-                <td>6</td>
-                <td>8</td>
-                <td>10</td>
-                <td>aprovado</td>
-            </tr>
-            <tr>
-                <td>Lenner</td>
-                <td>5</td>
-                <td>6</td>
-                <td>8</td>
-                <td>10</td>
-                <td>aprovado</td>
-            </tr>
-            <tr>
-                <td>Lenner</td>
-                <td>5</td>
-                <td>6</td>
-                <td>8</td>
-                <td>10</td>
-                <td>aprovado</td>
-            </tr>
-            <tr>
-                <td>Lenner</td>
-                <td>5</td>
-                <td>6</td>
-                <td>8</td>
-                <td>10</td>
-                <td>aprovado</td>
-            </tr>
-            <tr>
-                <td>Lenner</td>
-                <td>5</td>
-                <td>6</td>
-                <td>8</td>
-                <td>10</td>
-                <td>aprovado</td>
-            </tr>
-            <tr>
-                <td>Lenner</td>
-                <td>5</td>
-                <td>6</td>
-                <td>8</td>
-                <td>10</td>
-                <td>aprovado</td>
-            </tr>
+
 
         </tbody>
     </table>
     <script src="js/script.js"></script>
-    <button onclick="addRow()">Adicionar linha</button>
 </body>
 
 </html>

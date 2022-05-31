@@ -1,19 +1,47 @@
-function addRow() {
+function inserirLinha(nome, nota1, nota2, nota3, media, situacao) {
     let table = document.querySelector('table')
-    console.dir(table)
+    let tbody = document.querySelector('tbody')
     var numeroLinhas = table.rows.length;
-    var linha = table.insertRow(numeroLinhas);
-    var celula1 = linha.insertCell(0);
-    var celula2 = linha.insertCell(1);
-    var celula3 = linha.insertCell(2);
-    var celula4 = linha.insertCell(3);
-    var celula5 = linha.insertCell(4);
-    var celula6 = linha.insertCell(5);
+    var linha = tbody.insertRow(0);
+    var nomeLinha = linha.insertCell(0);
+    var nota1Linha = linha.insertCell(1);
+    var nota2Linha = linha.insertCell(2);
+    var nota3Linha = linha.insertCell(3);
+    var mediaLinha = linha.insertCell(4);
+    var situacaoLinha = linha.insertCell(5);
 
-    celula1.innerHTML = 'lenner';
-    celula2.innerHTML = 50;
-    celula3.innerHTML = "a";
-    celula4.innerHTML = "a";
-    celula5.innerHTML = "a";
-    celula6.innerHTML = "a";
+    nomeLinha.innerHTML = nome;
+    nota1Linha.innerHTML = nota1;
+    nota2Linha.innerHTML = nota2;
+    nota3Linha.innerHTML = nota3;
+    mediaLinha.innerHTML = media;
+    situacaoLinha.innerHTML = situacao;
+}
+
+function receberDados() {
+    let nome = novoAluno[0].value
+    let nota1 = parseFloat(novoAluno[1].value)
+    let nota2 = parseFloat(novoAluno[2].value)
+    let nota3 = parseFloat(novoAluno[3].value)
+    limparDados()
+
+    processaDados(nome, nota1, nota2, nota3)
+}
+function limparDados() {
+    let inputs = document.querySelectorAll('input:not([type="submit"])')
+    inputs.forEach((input) => {
+        input.value = ''
+    })
+}
+
+function processaDados(nome, nota1, nota2, nota3) {
+    let media = ((nota1 + nota2 + nota3) / 3).toFixed(1)
+    if (media >= 7) {
+        var situacao = 'Aprovado'
+    } else if (media >= 4) {
+        var situacao = 'Prova final'
+    } else {
+        var situacao = 'Reprovado'
+    }
+    inserirLinha(nome, nota1, nota2, nota3, media, situacao)
 }
