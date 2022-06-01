@@ -10,29 +10,37 @@
 </head>
 
 <body>
-    <form action="javascript: receberDados()" id="novoAluno">
-        <input required type="text" name="name" id="name" placeholder="Nome">
-        <input type="number" name="nota-1" id="nota-1" placeholder="Nota 1:" min="0" max="10" required>
-        <input type="number" name="nota-2" id="nota-2" placeholder="Nota 2:" min="0" max="10" required>
-        <input type="number" name="nota-3" id="nota-3" placeholder="Nota 3:" min="0" max="10" required>
-        <button type="submit">Inserir</button>
-    </form>
-    <table>
-        <thead>
-            <tr>
-                <th>Aluno</th>
-                <th>Nota 1</th>
-                <th>Nota 2</th>
-                <th>Nota 3</th>
-                <th>Média</th>
-                <th>Situação</th>
-            </tr>
-        </thead>
-        <tbody>
-
-
-        </tbody>
-    </table>
+    <div class="container">
+        <form action="javascript: receberDados()" id="novoAluno">
+            <input required type="text" name="name" id="name" placeholder="Nome">
+            <input type="number" name="nota-1" id="nota-1" placeholder="Nota 1:" step="0.1" min="0" max="10" required>
+            <input type="number" name="nota-2" id="nota-2" placeholder="Nota 2:" step="0.1" min="0" max="10" required>
+            <input type="number" name="nota-3" id="nota-3" placeholder="Nota 3:" step="0.1" min="0" max="10" required>
+            <button type="submit">Inserir</button>
+        </form>
+        <table id="alunos">
+            <thead>
+                <tr>
+                    <th>Aluno</th>
+                    <th>Nota 1</th>
+                    <th>Nota 2</th>
+                    <th>Nota 3</th>
+                    <th>Média</th>
+                    <th>Situação</th>
+                </tr>
+            </thead>
+            <tbody ></tbody>
+        </table>
+        
+        <h2>Buscar aluno:</h2>
+        <form action="javascript: procurarAluno()" id="buscarAluno">
+            <input type="text" placeholder="Nome do Aluno">
+            <button type="submit">Buscar</button>
+        </form>
+        <table id="tableBusca">
+            <tbody></tbody>
+        </table>
+    </div>
     <script src="js/script.js"></script>
 </body>
 
