@@ -16,6 +16,7 @@ function limparDados() {
 
 function processaDados(nome, nota1, nota2, nota3) {
     let media = ((nota1 + nota2 + nota3) / 3).toFixed(1)
+
     if (media >= 7) {
         var situacao = 'Aprovado'
     } else if (media >= 4) {
@@ -23,14 +24,17 @@ function processaDados(nome, nota1, nota2, nota3) {
     } else {
         var situacao = 'Reprovado'
     }
+
     inserirLinha('alunos', nome, nota1, nota2, nota3, media, situacao)
 }
 
 function inserirLinha(id, nome, nota1, nota2, nota3, media, situacao) {
     let colors = { 'Aprovado': 'green', 'Prova Final': 'yellow', 'Reprovado': 'red' }
-    let table = document.querySelector('#' + id)
-    console.log(table)
-    let tbody = document.querySelector('#' + id + ' tbody')
+    id = '#' + id
+
+    let table = document.querySelector(id)
+    let tbody = document.querySelector(id + ' tbody')
+
     var linha = tbody.insertRow(0);
     var nomeLinha = linha.insertCell(0);
     var nota1Linha = linha.insertCell(1);
@@ -46,7 +50,6 @@ function inserirLinha(id, nome, nota1, nota2, nota3, media, situacao) {
     mediaLinha.innerHTML = media;
     situacaoLinha.innerHTML = situacao;
 
-    console.log(situacao, colors[situacao])
     situacaoLinha.style.backgroundColor = colors[situacao]
 }
 
@@ -62,27 +65,24 @@ function procurarAluno() {
         elementoNomes.forEach((elemento) => {
             nomes.push(elemento.outerText)
         })
+
         nomes.forEach((nome, index) => {
             if (nome.toLowerCase().includes(nomeBusca.toLowerCase())) {
                 let tds = linhas[index].children
-                console.log(tds)
+
                 let valoresLinha = []
                 Array.from(tds).forEach((td) => {
                     valoresLinha.push(td.outerText)
                 })
+
                 inserirLinha('tableBusca', ...valoresLinha)
-            } else {
-                console.log(nomeBusca, nome)
             }
         })
-        console.log(linhas)
-        console.log(elementoNomes, ...nomes)
     }
 }
 
 function limparTabela() {
-    let linhas = document.querySelectorAll('#tableBusca tbody tr')
-    linhas.forEach((linha) => {
+    document.querySelectorAll('#tableBusca tbody tr').forEach((linha) => {
         linha.remove()
     })
 }
