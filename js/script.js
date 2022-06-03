@@ -29,7 +29,7 @@ function processaDados(nome, nota1, nota2, nota3) {
 }
 
 function inserirLinha(id, nome, nota1, nota2, nota3, media, situacao) {
-    let colors = { 'Aprovado': 'green', 'Prova Final': 'yellow', 'Reprovado': 'red' }
+    let colors = { 'Aprovado': 'green', 'Prova Final': 'blue', 'Reprovado': 'red' }
     id = '#' + id
 
     let table = document.querySelector(id)
